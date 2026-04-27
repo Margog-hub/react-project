@@ -34,10 +34,10 @@ function App() {
     <Stack sx={{ alignItems: "center" }}>
       {
         isLoginForm ? <Stack sx={{ width: "550px" }} gap={2}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{color:"green", textAlign: "center"}}>
             Вход в сервис
           </Typography>
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom sx={{textAlign: "center"}}>
             Нет учетной записи?
           </Typography>
           <Button variant="text" onClick ={handleRegister}>
@@ -52,10 +52,10 @@ function App() {
           </Button>
         </Stack> :
          <Stack sx={{ width: "550px" }} gap={2}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom sx={{color:"green", textAlign: "center"}}>
             Регистрация в сервисе
           </Typography>
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom sx={{textAlign: "center"}}>
             Есть учетка?
           </Typography>
           <Button variant="text" onClick ={handleLogin}>
