@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import './App.css'
+import SingUpForm from './components/SingUpForm';
 
 
 function App() {
@@ -32,43 +33,7 @@ function App() {
 
   return (
     <Stack sx={{ alignItems: "center" }}>
-      {
-        isLoginForm ? <Stack sx={{ width: "550px" }} gap={2}>
-          <Typography variant="h4" gutterBottom sx={{color:"green", textAlign: "center"}}>
-            Вход в сервис
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom sx={{textAlign: "center"}}>
-            Нет учетной записи?
-          </Typography>
-          <Button variant="text" onClick ={handleRegister}>
-            Зарегестрироваться
-          </Button>
-          <TextField id="login" label="login" variant="standard" onChange={handleChangeLogin} value={data} />
-          <TextField id="password" label="Password" variant="standard" type="password" onChange={handleChangePass} value={pass} />
-          <Button variant="contained" 
-          // onClick={handleLogin}
-          >
-            Войти
-          </Button>
-        </Stack> :
-         <Stack sx={{ width: "550px" }} gap={2}>
-          <Typography variant="h4" gutterBottom sx={{color:"green", textAlign: "center"}}>
-            Регистрация в сервисе
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom sx={{textAlign: "center"}}>
-            Есть учетка?
-          </Typography>
-          <Button variant="text" onClick ={handleLogin}>
-           Войти
-          </Button>
-          <TextField id="login" label="login" variant="standard" onChange={handleChangeLogin} value={data} />
-          <TextField id="password" label="Password" variant="standard" type="password" onChange={handleChangePass} value={pass} />
-          <Button variant="contained" 
-          // onClick={handleRegister}
-          > Регистрация
-          </Button>
-        </Stack>
-      }
+    <SingUpForm/>
     </Stack>
   )
 }
