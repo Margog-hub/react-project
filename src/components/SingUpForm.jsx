@@ -7,7 +7,7 @@ import { useState } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
-function SingUpForm() {
+function SingUpForm(props) {
   const [isLoginForm, setIsLoginForm] = useState(true)
 
   const handleLogin = () => {
@@ -17,12 +17,9 @@ function SingUpForm() {
     setIsLoginForm(false)
   }
 
-  // const LoginForm = () => {
-  //   setIsLoginForm(false)
-  // }
 
   return ( isLoginForm ? 
-  <LoginForm handleRegister={handleRegister}/> :
+  <LoginForm  setUser ={props.setUser} handleRegister={handleRegister}/> :
   <RegisterForm handleLogin={handleLogin}/>)
 }
 
