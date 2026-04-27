@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 import './App.css'
 import SingUpForm from './components/SingUpForm';
+import HomePage from './components/Home/HomePage';
 
 
 function App() {
@@ -15,7 +16,7 @@ const [user, setUser] = useState()
     <Stack sx={{ alignItems: "center" }}>
       {
         user ? 
-        <div>{user.name}</div> :
+       <HomePage username = {user.name}/>:
          <SingUpForm setUser = {setUser}/>
       }
     </Stack>
