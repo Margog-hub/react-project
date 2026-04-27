@@ -23,6 +23,14 @@ function LoginForm(props) {
     setPass(e.target.value)
   }
 
+  const handleLoginClick =() => {
+    if(data === 'admin' && pass ==='123') {
+      props.setUser({name: data})
+    } else {
+      console.error('Unclow user')
+    }
+  }
+
   return (
   
         <Stack sx={{ width: "550px" }} gap={2}>
@@ -37,9 +45,7 @@ function LoginForm(props) {
           </Button>
           <TextField id="login" label="login" variant="standard" onChange={handleChangeLogin} value={data} />
           <TextField id="password" label="Password" variant="standard" type="password" onChange={handleChangePass} value={pass} />
-          <Button variant="contained" 
-          // onClick={handleLogin}
-          >
+          <Button variant="contained" onClick={handleLoginClick}>
             Войти
           </Button>
         </Stack> 
