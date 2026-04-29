@@ -8,9 +8,11 @@ import  Typography  from '@mui/material/Typography';
 
 const TodoItem = (props) => {
   const  todo = props.todo
+  const handleDeleteTodo = ()=> props.handleDeleteTodo(todo._id)
+  const handleDoneTodo = () => props.handleDoneTodo(todo._id)
   return (
     <div>
-        <Card sx={{ minWidth: 275 }}>
+        <Card sx={{ minWidth: 275, backgroundColor: todo.isDone ? '#fff010'  : undefined}} >
       <CardContent>
         <Typography gutterBottom >
          {todo.title}
@@ -20,9 +22,9 @@ const TodoItem = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Checkbox checked={todo.isDone} />
+        <Checkbox checked={todo.isDone} onChange ={handleDoneTodo} />
         <Button size="small">Редактировать</Button>
-         <Button size="small" sx ={{backgroundColor: 'red', color: 'white'}}>Удалить</Button>
+         <Button size="small" onClick ={handleDeleteTodo} sx ={{backgroundColor: 'red', color: 'white'}}>Удалить</Button>
       </CardActions>
     </Card>
     </div>
