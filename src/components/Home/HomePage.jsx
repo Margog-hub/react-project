@@ -1,38 +1,38 @@
-import React from 'react';
+import React, {useState}  from 'react';
 import  Typography  from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
+import TodoItem from './TodoItem';
 
 
-function HomePage(props) {
   const todo ={
     _id: '234jhg',
     title: "Подстричься",
     description: "Сходить в парихмахерскую",
     isDone: true,
+  } 
+
+function HomePage(props) {
+const [todos, setTodos] = useState([todo])
+
+const handleAddTodo = () => {
+  const newTodo ={
+     _id: Date.now().toString( ),
+    title: "Подстричься",
+    description: "Сходить в парихмахерскую",
+    isDone: true,
   }
+  setTodos([newTodo, ...todos])
+}
   return (
     <div>
       <Typography>{props.username}</Typography>
-       <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography gutterBottom >
-         {todo.title}
-        </Typography>
-        <Typography variant="body2">
-         {todo.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Checkbox checked={todo.isDone} />
-        <Button size="small">Редактировать</Button>
-         <Button size="small" sx ={{backgroundColor: 'red', color: 'white'}}>Удалить</Button>
-      </CardActions>
-    </Card>
+      <Button onClick ={handleAddTodo}> Добавить дело</Button>
+      {
+        todos.map((item) => {
+          return  <TodoItem  key ={item._id} todo={item} />
+        })
+      }
+    
     </div>
   )
 }
