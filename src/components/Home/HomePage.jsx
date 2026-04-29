@@ -2,6 +2,7 @@ import React, {useState}  from 'react';
 import  Typography  from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import TodoItem from './TodoItem';
+import AddTodo from './AddTodo';
 
 
   const todo ={
@@ -14,19 +15,20 @@ import TodoItem from './TodoItem';
 function HomePage(props) {
 const [todos, setTodos] = useState([todo])
 
-const handleAddTodo = () => {
+const handleAddTodo = (title, description) => {
   const newTodo ={
-     _id: Date.now().toString( ),
-    title: "Подстричься",
-    description: "Сходить в парихмахерскую",
-    isDone: true,
+     _id: Date.now().toString(),
+    title: title,
+    description: description,
+    isDone: false,
   }
   setTodos([newTodo, ...todos])
 }
   return (
     <div>
       <Typography>{props.username}</Typography>
-      <Button onClick ={handleAddTodo}> Добавить дело</Button>
+      <AddTodo addTodo = {handleAddTodo} />
+     
       {
         todos.map((item) => {
           return  <TodoItem  key ={item._id} todo={item} />
