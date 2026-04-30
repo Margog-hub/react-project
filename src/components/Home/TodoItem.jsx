@@ -28,7 +28,7 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <Card sx={{ minWidth: 275, backgroundColor: todo.isDone ? '#fff010' : undefined }} >
+      <Card sx={{ minWidth: 275, backgroundColor: todo.isDone ? '#fdf36c' : undefined }} >
         <CardContent>
           <Stack >
             {
